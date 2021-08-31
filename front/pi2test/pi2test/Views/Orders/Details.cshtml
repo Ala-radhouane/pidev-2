@@ -1,0 +1,58 @@
+﻿@model pi2.Models.Orders
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Orders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_order)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_order)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status_order)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status_order)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fees_order)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fees_order)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_order)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_order)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

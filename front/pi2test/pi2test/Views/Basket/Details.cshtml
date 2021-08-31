@@ -1,0 +1,50 @@
+﻿@model pi2.Models.Basket
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Basket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_basket)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_basket)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_basket)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_basket)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type_paiement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type_paiement)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

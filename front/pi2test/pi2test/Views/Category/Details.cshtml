@@ -1,0 +1,42 @@
+﻿@model pi2.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Category</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_cat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_cat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name_cat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name_cat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.desc_cat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desc_cat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
