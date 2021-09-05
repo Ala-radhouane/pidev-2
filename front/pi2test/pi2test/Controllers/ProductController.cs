@@ -269,5 +269,35 @@ namespace pi2test.Controllers
             }
             return View(products);
         }
+        //stock alert
+        public ActionResult Stockalert(String searchString)
+        {
+            IEnumerable<Product> products = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:8080/");
+                var responseTask = client.GetAsync("stock-alert");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readJob = result.Content.ReadAsAsync<IList<Product>>();
+                    readJob.Wait();
+                    products = readJob.Result;
+                    if (!String.IsNullOrEmpty(searchString))
+                    {
+                        products = products.Where(m => m.name_prod.Contains(searchString)).ToList();
+                    }
+                    return View(products);
+                }
+                else
+                {
+                    products = Enumerable.Empty<Product>();
+                    ModelState.AddModelError(string.Empty, "Server error occured. Please contact admin for help!");
+                }
+            }
+            return View(products);
+        }
     }
 }

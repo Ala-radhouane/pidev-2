@@ -98,7 +98,7 @@ public class OrdersService {
 	}
 	
 	public String exportReport() throws FileNotFoundException, JRException {
-		 String path = "C:\\Users\\alara\\JaspersoftWorkspace\\MyOrder";
+		 String path = "C:\\Users\\alara\\JaspersoftWorkspace\\";
 	        List<Orders> o = (List<Orders>) ordersRepository.findAll();
 	        //load file and compile it
 	        File file = ResourceUtils.getFile("classpath:OrderInvoice.jrxml");

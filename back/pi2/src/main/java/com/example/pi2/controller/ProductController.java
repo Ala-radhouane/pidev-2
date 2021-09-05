@@ -52,7 +52,7 @@ public class ProductController {
 		@ResponseBody
 		public void removeProduct(@PathVariable("prod-id") Long id_prod) {
 			prodService.deleteProduct(id_prod);
-			;
+			
 		}
 
 		// http://localhost:8080/modify-product
@@ -96,6 +96,14 @@ public class ProductController {
 			List<Product> list = prodService.orderByDescendingQantity();
 			return list;
 		}
+		
+				// http://localhost:8080/stock-alert
+				@GetMapping("/stock-alert")
+				@ResponseBody
+				public List<Product> findProductAlert() {
+					List<Product> list = prodService.findProductAlert();
+					return list;
+				}
 
 	
 		// affecter category to product

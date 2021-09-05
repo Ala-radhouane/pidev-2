@@ -68,8 +68,8 @@ public class BaskerService {
 			o.setStatus_order("in Delivering");
 			
 		}
-		 if(tp.toUpperCase().equals(Paiement.ATTHEDELIVERY) ){
-			  b.setType_paiement(Paiement.ATTHEDELIVERY);
+		 if(tp.toUpperCase().equals(Paiement.ATDELIVERY) ){
+			  b.setType_paiement(Paiement.ATDELIVERY);
 		   }
 		 else {
 			  b.setType_paiement(Paiement.BYCARD);

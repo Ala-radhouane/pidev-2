@@ -26,4 +26,7 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 	
 	@Query("from Product order by quantity desc")
 	public List<Product> orderByDescendingQantity();
+	
+	@Query(value ="select * from product p where p.quantity < p.minvalue_stock ",nativeQuery = true)
+	public List<Product> findProductAlert();
 }

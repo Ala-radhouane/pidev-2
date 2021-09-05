@@ -23,7 +23,7 @@ public class Basket implements Serializable {
     private Paiement type_paiement;
 
     public enum Paiement {
-        ATTHEDELIVERY,BYCARD;
+        ATDELIVERY,BYCARD;
     }
 
     @OneToMany(cascade = CascadeType.ALL)

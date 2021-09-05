@@ -24,9 +24,20 @@ public class Client {
 	
 	@OneToOne(fetch = FetchType.EAGER)
 	private Basket basket;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	private Invoice invoice;
 
 	public long getId() {
 		return id;
+	}
+
+	public Invoice getInvoice() {
+		return invoice;
+	}
+
+	public void setInvoice(Invoice invoice) {
+		this.invoice = invoice;
 	}
 
 	public void setId(long id) {

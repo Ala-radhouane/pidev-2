@@ -113,5 +113,9 @@ public class ProductService {
 		// TODO Auto-generated method stub
 		return productRepository.orderByDescendingQantity();
 	}
+	
+	public List<Product> findProductAlert(){
+		return productRepository.findProductAlert();
+	}
 
 }
