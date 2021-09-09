@@ -11,7 +11,7 @@ namespace pi2test.Controllers
     public class OrdersController : Controller
     {
         // GET: Orders
-        public ActionResult Index()
+        public ActionResult Index(String searchString,String searchString11)
         {
             IEnumerable<Orders> orders = null;
             using (var client = new HttpClient())
@@ -22,20 +22,33 @@ namespace pi2test.Controllers
 
             var result = responseTask.Result;
             if (result.IsSuccessStatusCode)
-            {
+              {
                 var readJob = result.Content.ReadAsAsync<IList<Orders>>();
                 readJob.Wait();
                 orders = (IEnumerable<Orders>)readJob.Result;
+                    readJob.Wait();
+                    orders = readJob.Result;
+                    if (!String.IsNullOrEmpty(searchString))
+                    {
+                        orders = orders.Where(m => m.basket.product.name_prod.Contains(searchString)).ToList();
+                    }
+                    if (!String.IsNullOrEmpty(searchString11))
+                    {
+                        orders = orders.Where(m => m.basket.client.firstname.Contains(searchString11)).ToList();
+                    }
+                    return View(orders);
 
-            }
-            else
+                }
+                else
             {
                 orders = Enumerable.Empty<Orders>();
                 ModelState.AddModelError(string.Empty, "Server error occured. Please contact admin for help!");
             }
-        }
+            }
             return View(orders);
         }
+
+     
 
         // GET: Orders/Details/5
         public ActionResult Details(int id)
@@ -64,23 +77,23 @@ namespace pi2test.Controllers
         public ActionResult Create()
         {
             List<Orders> o = new List<Orders>();
-            IEnumerable<Product> products = null;
+            IEnumerable<Basket> Baskets = null;
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:8080/");
-                var responseTask = client.GetAsync("retrieve-all-products");
+                var responseTask = client.GetAsync("retrieve-all-Basket");
                 responseTask.Wait();
 
                 var result = responseTask.Result;
                 if (result.IsSuccessStatusCode)
                 {
-                    var readJob = result.Content.ReadAsAsync<IList<Product>>();
+                    var readJob = result.Content.ReadAsAsync<IList<Basket>>();
                     readJob.Wait();
-                    products = readJob.Result;
+                    Baskets = readJob.Result;
                 }
             }
 
-            ViewBag.productList = new SelectList(products, "id_prod", "name_prod");
+            ViewBag.BasketList = new SelectList(Baskets, "id_basket","client.firstname");
             return View();
         }
 
@@ -88,10 +101,10 @@ namespace pi2test.Controllers
         [HttpPost]
         public ActionResult Create(Orders o)
         {
-            string idprod = Request.Form["productList"].ToString();
-            Product p = new Product();
-            p.id_prod = Convert.ToInt32(idprod);
-            o.products = p;
+            string idbasket = Request.Form["BasketList"].ToString();
+            Basket c = new Basket();
+            c.id_basket = Convert.ToInt32(idbasket);
+            o.basket = c;
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:8080/add-orders");

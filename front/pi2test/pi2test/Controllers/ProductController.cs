@@ -169,13 +169,13 @@ namespace pi2test.Controllers
             return View(products);
         }
 
-        //craete post  method to update the data
+        //craete post method to update the data
         [HttpPost]
         public ActionResult Edit(Product product)
         {
 
             Category categorys = null;
-            long id = product.category.id_cat;
+            long id = product.id_prod;
             Console.WriteLine(id);
             using (var client = new HttpClient())
             {

@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-
 @AllArgsConstructor
 @NoArgsConstructor
 public class Orders implements Serializable {
@@ -18,13 +17,15 @@ public class Orders implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_order;
+    
     private String  Status_order;
+    
     private float fees_order;
 
     @Temporal(TemporalType.DATE)
     private Date date_order;
 
-    private int quantity ;
+    private int discount ;
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Product> product;
@@ -38,6 +39,19 @@ public class Orders implements Serializable {
 	public long getId_order() {
 		return id_order;
 	}
+	
+
+	public int getDiscount() {
+		return discount;
+	}
+
+
+
+	public void setDiscount(int discount) {
+		this.discount = discount;
+	}
+
+
 
 	public void setId_order(long id_order) {
 		this.id_order = id_order;
@@ -67,13 +81,7 @@ public class Orders implements Serializable {
 		this.date_order = date_order;
 	}
 
-	public int getQuantity() {
-		return quantity;
-	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
 
 	public Set<Product> getProduct() {
 		return product;
@@ -106,7 +114,7 @@ public class Orders implements Serializable {
 		Status_order = status_order;
 		this.fees_order = fees_order;
 		this.date_order = date_order;
-		this.quantity = quantity;
+		this.discount = quantity;
 		this.product = product;
 		this.basket = basket;
 		this.client = client;
@@ -117,7 +125,7 @@ public class Orders implements Serializable {
 	@Override
 	public String toString() {
 		return "Orders [id_order=" + id_order + ", Status_order=" + Status_order + ", fees_order=" + fees_order
-				+ ", date_order=" + date_order + ", quantity=" + quantity + ", product=" + product + ", basket="
+				+ ", date_order=" + date_order + ", quantity=" + discount + ", product=" + product + ", basket="
 				+ basket + ", client=" + client + "]";
 	}
 	

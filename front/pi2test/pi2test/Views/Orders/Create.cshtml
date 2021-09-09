@@ -16,15 +16,20 @@
     <h4>Orders</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.product, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="col-md-10">
-                @Html.DropDownList("productList", (SelectList)ViewData["productList"])
-                @Html.ValidationMessageFor(model => model.product)
-            </div>
-        </div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.basket, htmlAttributes: new
+    {
+        @class =
+        "control-label col-md-2"
+    })
+    <div class="col-md-10">
+        @Html.DropDownList("BasketList", (SelectList)ViewData["BasketList"])
+        @Html.ValidationMessageFor(model => model.basket)
     </div>
+</div>
+
+ 
 
     <div class="form-group">
         @Html.LabelFor(model => model.Status_order, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -41,13 +46,11 @@
         </div>
     </div>
 
-
-
     <div class="form-group">
-        @Html.LabelFor(model => model.quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.discount, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.discount, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.discount, "", new { @class = "text-danger" })
         </div>
     </div>
 

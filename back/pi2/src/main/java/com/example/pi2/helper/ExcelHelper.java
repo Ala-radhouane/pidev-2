@@ -18,7 +18,7 @@ import com.example.pi2.model.Product;
 public class ExcelHelper {
 
 	public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-	static String[] HEADERs = { "date_basket", "total", "type_paiement" };
+	static String[] HEADERs = { "date_basket", "total", "type_paiement","Client name","Product name","Product description","product price" };
 	static String SHEET = "facture";
 
 	public static ByteArrayInputStream factureToExcel(List<Basket> facture) {
@@ -40,6 +40,12 @@ public class ExcelHelper {
 		
 				row.createCell(0).setCellValue(b.getDate_basket());
 				row.createCell(1).setCellValue(b.getTotal());
+				row.createCell(2).setCellValue(b.getType_paiement().toString());
+				row.createCell(3).setCellValue(b.getClient().getFirstname());
+				row.createCell(4).setCellValue(b.getProduct().getName_prod());
+				row.createCell(5).setCellValue(b.getProduct().getDescription_prod());
+				row.createCell(6).setCellValue(b.getProduct().getPrice_prod());
+
 
 							}
 			workbook.write(out);

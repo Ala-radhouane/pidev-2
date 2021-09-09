@@ -14,7 +14,7 @@ namespace pi2.Models
 
         public float fees_order { get; set; }
 
-        public int quantity { get; set; }
+        public int discount { get; set; }
 
         public DateTime date_order { get; set; }
         

@@ -5,6 +5,36 @@
 }
 
 <h2>Index</h2>
+@using (Html.BeginForm())
+{
+    <table >
+        <tr>
+            <td>
+                <div>
+                    Search by basket product: @Html.TextBox("searchString")
+                </div>
+            </td>
+            <td>
+                <input type="submit" value="Search" id="submit" />
+            </td>
+        </tr>
+    </table>}
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>
+                <div>
+                    Search by client : @Html.TextBox("searchString11")
+                </div>
+            </td>
+            <td>
+                <input type="submit" value="Search" id="submit" />
+            </td>
+        </tr>
+    </table>}
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -21,10 +51,13 @@
             @Html.DisplayNameFor(model => model.fees_order)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.quantity)
+            @Html.DisplayNameFor(model => model.discount)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.date_order)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.basket)
         </th>
 
         <th></th>
@@ -43,11 +76,21 @@
                 @Html.DisplayFor(modelItem => item.fees_order)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.quantity)
+                @Html.DisplayFor(modelItem => item.discount)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.date_order)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.basket.client.firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.basket.product.name_prod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.basket.product.barcode_prod)
+            </td>
+
 
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

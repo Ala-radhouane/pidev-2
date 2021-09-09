@@ -71,8 +71,8 @@ public class ProductService {
 		List<Product> products = (List<Product>) productRepository.findAll();
 		Map<Product, Integer> productsSells = new HashMap<>();
 		products.forEach(p -> {
-			int sells = ordersService.GetOrderrsByProduct(p).size();
-			productsSells.put(p, sells);
+		//	int sells = ordersService.GetOrderrsByProduct(p).size();
+			//productsSells.put(p, sells);
 
 		});
 		return productsSells;

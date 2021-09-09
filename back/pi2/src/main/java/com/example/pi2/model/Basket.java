@@ -35,6 +35,15 @@ public class Basket implements Serializable {
     @OneToOne
     private Product product;
     
+    
+    
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 
 	public long getId_basket() {
 		return id_basket;
