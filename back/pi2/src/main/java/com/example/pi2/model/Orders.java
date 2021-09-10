@@ -18,7 +18,7 @@ public class Orders implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_order;
     
-    private String  Status_order;
+    private String  status_order;
     
     private float fees_order;
 
@@ -57,13 +57,17 @@ public class Orders implements Serializable {
 		this.id_order = id_order;
 	}
 
+	
+
 	public String getStatus_order() {
-		return Status_order;
+		return status_order;
 	}
 
+
 	public void setStatus_order(String status_order) {
-		Status_order = status_order;
+		this.status_order = status_order;
 	}
+
 
 	public float getFees_order() {
 		return fees_order;
@@ -111,7 +115,7 @@ public class Orders implements Serializable {
 			Set<Product> product, Basket basket, Client client) {
 		super();
 		this.id_order = id_order;
-		Status_order = status_order;
+		status_order = status_order;
 		this.fees_order = fees_order;
 		this.date_order = date_order;
 		this.discount = quantity;
@@ -124,7 +128,7 @@ public class Orders implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Orders [id_order=" + id_order + ", Status_order=" + Status_order + ", fees_order=" + fees_order
+		return "Orders [id_order=" + id_order + ", Status_order=" + status_order + ", fees_order=" + fees_order
 				+ ", date_order=" + date_order + ", quantity=" + discount + ", product=" + product + ", basket="
 				+ basket + ", client=" + client + "]";
 	}

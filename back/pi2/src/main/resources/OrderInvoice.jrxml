@@ -67,7 +67,7 @@
 	<field name="fees_order" class="java.lang.Float">
 	
 	</field>
-	<field name="quantity" class="java.lang.Integer">
+	<field name="discount" class="java.lang.Integer">
 		
 	</field>
 	<field name="date_order" class="java.sql.Date">
@@ -247,7 +247,7 @@
 				<textElement>
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{discount}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 				<reportElement style="Detail" positionType="Float" x="414" y="0" width="138" height="20" uuid="f8129261-af99-4a9c-ba5c-51d1e2592669">

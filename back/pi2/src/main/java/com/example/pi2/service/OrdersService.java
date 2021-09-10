@@ -84,12 +84,7 @@ public class OrdersService {
 	}
 
 	
-	public List<Orders> findAll() {
-
-		List<Orders> orders = (List<Orders>) ordersRepository.findAll();
-
-		return orders;
-	}
+	
 	
 	
 	public List<Orders> GetOrderrsByProduct(Product product) {

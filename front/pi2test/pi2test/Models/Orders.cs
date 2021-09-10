@@ -10,7 +10,7 @@ namespace pi2.Models
 
         public int id_order { get; set; }
 
-        public String Status_order { get; set; }
+        public String status_order { get; set; }
 
         public float fees_order { get; set; }
 
